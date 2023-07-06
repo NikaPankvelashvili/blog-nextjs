@@ -18,6 +18,7 @@ export default function Author({ name, position, image }: Props) {
       <img className="mb-5" src={image.src} />
       <h5 className="font-bold text-black text-lg">{name.split(" ")[0]}</h5>
       <h5 className="font-bold text-black text-lg">{name.split(" ")[1]}</h5>
+      {/* <h5 className="font-bold text-black text-lg text-center">{name}</h5> */}
       <h6 className=" text-xs text-center text-medium_grey mb-5">{position}</h6>
       <div className="flex text-black text-xl">
         <a

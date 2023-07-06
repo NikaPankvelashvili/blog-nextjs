@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import SwiperType from "swiper";
 import Button from "@component/components/Button";
 import house from "../images/home.png";
 import Image from "next/image";
@@ -12,8 +16,18 @@ import Person3 from "../images/person3.png";
 import Person4 from "../images/person4.png";
 import featuredIn from "../images/Featured-in.png";
 import logosWrapper from "../images/Logo-Wrapper.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import SwiperComment from "@component/components/SwiperComment";
 
 export default function Home() {
+  const swiperRef = useRef<SwiperType>();
+
   return (
     <main>
       <section className="bg-[url('../images/man-in-black.png')] h-[720px] w-full bg-no-repeat bg-cover pt-32 pl-20 text-[#fff] bg-[grey] bg-blend-multiply">
@@ -200,8 +214,8 @@ export default function Home() {
         </div>
       </section>
       <section className="px-20">
-        <div className="py-20 px-28 bg-light_yellow flex">
-          <div className="w-2/5">
+        <div className="py-20 px-28 bg-light_yellow flex mb-32">
+          <div className="w-[40%]">
             <p className="text-black font-semibold mb-3">TESTIMONIALS</p>
             <h4 className="font-bold text-4xl mb-4">
               What people say about our blog
@@ -211,8 +225,79 @@ export default function Home() {
               eiusmod tempor.
             </p>
           </div>
-          <div className="w-[2px] h-3-4 border rounded border-[#6D6E76] ml-20 mr-24"></div>
-          <div>TEST</div>
+          <div className="w-[1px] h-3-4 border rounded border-[#6D6E76] ml-20 mr-24"></div>
+          <div className="w-[60%]">
+            <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              modules={[]}
+              loop={true}
+              autoplay={{ delay: 1000 }}
+              spaceBetween={50}
+              slidesPerView={1}
+            >
+              <SwiperSlide>
+                <SwiperComment
+                  name="Floyd Miles"
+                  origin="New York, USA"
+                  photo={Person1}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <SwiperComment
+                  name="Dianne
+                  Russell"
+                  origin="New York, USA"
+                  photo={Person2}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <SwiperComment
+                  name="Jenny
+                  Wilson"
+                  origin="New York, USA"
+                  photo={Person3}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <SwiperComment
+                  name="Leslie
+                  Alexander"
+                  origin="New York, USA"
+                  photo={Person4}
+                />
+              </SwiperSlide>
+            </Swiper>
+            <div className="w-full flex justify-between">
+              <div className="flex items-center justify-center p-4 bg-yellow rounded-full">
+                <button
+                  className="text-black text-3xl font-bold  "
+                  onClick={() => swiperRef.current?.slidePrev()}
+                >
+                  <GrFormPreviousLink />
+                </button>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-yellow rounded-full">
+                <button
+                  className="text-black text-3xl font-bold  "
+                  onClick={() => swiperRef.current?.slideNext()}
+                >
+                  <GrFormNextLink />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full flex flex-col justify-center items-center mb-32">
+          <h2 className=" w-1/3 font-bold text-4xl text-black mb-4 text-center">
+            Join our team to be a part of our story
+          </h2>
+          <p className="text-medium_grey w-[30%] text-center mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt.
+          </p>
+          <Button text="Join Now" />
         </div>
       </section>
     </main>
