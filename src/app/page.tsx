@@ -24,6 +24,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import SwiperComment from "@component/components/SwiperComment";
+import JoinNow from "@component/components/JoinNow";
 
 export default function Home() {
   const swiperRef = useRef<SwiperType>();
@@ -214,7 +215,7 @@ export default function Home() {
         </div>
       </section>
       <section className="px-20">
-        <div className="py-20 px-28 bg-light_yellow flex mb-32">
+        <div className="py-20 px-28 bg-light_yellow flex">
           <div className="w-[40%]">
             <p className="text-black font-semibold mb-3">TESTIMONIALS</p>
             <h4 className="font-bold text-4xl mb-4">
@@ -289,16 +290,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col justify-center items-center mb-32">
-          <h2 className=" w-1/3 font-bold text-4xl text-black mb-4 text-center">
-            Join our team to be a part of our story
-          </h2>
-          <p className="text-medium_grey w-[30%] text-center mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt.
-          </p>
-          <Button text="Join Now" />
-        </div>
+        <JoinNow />
       </section>
     </main>
   );
