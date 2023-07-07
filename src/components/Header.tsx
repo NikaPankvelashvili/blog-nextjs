@@ -5,7 +5,9 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className=" h-20 w-screen bg-black flex items-center justify-between px-20">
-      <Image src={Logo} width={140} height={28} alt="logo" />
+      <Link href={"/"}>
+        <Image src={Logo} width={140} height={28} alt="logo" />
+      </Link>
       <nav className="text-[#fff]">
         <Link href={"/"}>Home</Link>
         <Link className="ml-6" href={"/blog"}>
