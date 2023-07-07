@@ -17,6 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Blog Post</title>
+      </head>
       <body className=" overflow-x-hidden">
         <Header />
         {children}
